@@ -13,37 +13,48 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
     <title>MyLocations</title>
+	<script>
+
+	</script>
   </head>
-  <body>
+  <body onpageshow ="getGeoLocation()">
 	<h1>My Locations</h1>
     
     <div id="map" style="width: 600px; height: 400px;"></div>
-	 <script>
-		const x = document.getElementById("map");
-
-		function getLocation() {
-		  if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-		  } else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		  }
-		}
-
-		function showPosition(position) {
-		  x.innerHTML = "Latitude: " + position.coords.latitude +
-		  "<br>Longitude: " + position.coords.longitude;
-		}
-</script> 
+	<p id="status"></p>
+	
 	<script>
+		const status = document.getElementById("status");
+		const map = L.map('map').setView([41.8829, 12.4214], 13);
+		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+		
+		function setGeoPosition(position)
+		{		
+			status.innerHTML = "Current location: " + position.coords.latitude + ", " + position.coords.longitude;
+			map.setView([position.coords.latitude,position.coords.longitude],13);
+		}
+		function geoError()
+		{
+		}
+		function getGeoLocation()
+		{
+			if(navigator.geolocation)
+			{
+				status.innerHTML = "Locating...";
+				navigator.geolocation.getCurrentPosition(setGeoPosition,geoError);
+			}
+			else
+			{
+				status.innerHTML = "Unable to retrieve location";
+			}
+		}
+		
+	</script>
 
-	const map = L.map('map').setView([51.505, -0.09], 13);
-
-	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(map);
-
-</script>
+	
 
   </body>
 </html>
