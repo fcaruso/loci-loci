@@ -1,12 +1,12 @@
-# MyLocations
-Simple WebApp to store my favourite locaions
+# loci-loci
+Simple WebApp to store your favourite locations.
 
 ## purpose
 The purpose is to practice with dockers, HTML5, JavaScript, OpenStreetMap and MySQL. 
 
 ## db schema
-Each record is defined by a label and a set of coordinate: ENTRY(LABEL,COORDINATE).
-In the next release it will be possible  to group labels in categories (i.e. Restaurants, Supermarket, ecc.).
+Each record is defined by a label, an address and a set of tags (like #restaurant and so on).
+The target is to make possible the use of every kind of navigation software.
 
 ## user profile
 Registered users
