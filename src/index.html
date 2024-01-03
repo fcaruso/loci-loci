@@ -4,28 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="HTML app to save favorite locations" />
+    <meta name="description" content="Web-App to save favorite locations" />
     
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-	 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-    <title>MyLocations</title>
+	<!-- leaflet stuff -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""></script>
+	<!-- stylesheets -->
+	
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> -->
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <title>Loci-Loci</title>
 	<script>
 
 	</script>
   </head>
   <body onpageshow ="getGeoLocation()">
-	<h1>My Locations</h1>
+  <!-- top row -->
+	
+	<p class="top-row">Loci-Loci
+	<button class="top-row">Log in</button>
+	<button class="top-row">Sign up</button>
+	</p>
+	
+<!-- end of top row --> 
     
-    <div id="map" style="width: 600px; height: 400px;"></div>
+	<div class="map">
+	<p>location:
+	<input style="width:75%;" type="text" id="location" name="location"></input>
+	<button id="search" name="search" style="float:right;margin-right:5px">search</button>
+	</p>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+	</div>
+	<div class="footer">
 	<p id="status"></p>
+	</div>
 	
 	<script>
 		const status = document.getElementById("status");
-		const map = L.map('map').setView([41.8829, 12.4214], 13);
+		const map = L.map('map').setView([41.8829, 12.4214], 13);//set default view to Rome
 		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 19,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -35,6 +59,7 @@
 		{		
 			status.innerHTML = "Current location: " + position.coords.latitude + ", " + position.coords.longitude;
 			map.setView([position.coords.latitude,position.coords.longitude],13);
+			L.marker([position.coords.latitude,position.coords.longitude]).addTo(map);
 		}
 		function geoError()
 		{
