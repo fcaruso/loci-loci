@@ -1,5 +1,5 @@
 # loci-loci
-Simple WebApp to store my favourite locations.
+Simple WebApp to store your favourite locations.
 
 ## purpose
 The purpose is to practice with dockers, HTML5, JavaScript, OpenStreetMap and MySQL. 
@@ -7,7 +7,6 @@ The purpose is to practice with dockers, HTML5, JavaScript, OpenStreetMap and My
 ## db schema
 Each record is defined by a label, an address and a set of tags (like #restaurant and so on).
 The target is to make possible the use of every kind of navigation software.
-
 
 ## user profile
 Registered users
