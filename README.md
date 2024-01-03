@@ -1,4 +1,4 @@
-# MyLocations
+# loci-loci
 Simple WebApp to store my favourite locations.
 
 ## purpose
