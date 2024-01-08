@@ -1,23 +1,26 @@
 # loci-loci
-Simple WebApp to store your favourite locations. A free alternative of the "saved locations" in google maps.
 
-## purpose
-The purpose of this web-app is to get rid of google maps.
+loci-loci è una semplice web-app nella quale potrete creare la vostra lista di luoghi preferiti. 
+Ogni luogo viene identificato tramite una etichetta e fa riferimento ad un indirizzo (per esempio “Duomo”, “Piazza Duomo, Milano”). 
+L’indirizzo può quindi essere utilizzato sul vostro navigatore preferito.
+La lista può essere salvata e/o esportata in formato JSON.
 
-## db schema
-Each record is defined by a label, an address and a set of tags (like #restaurant and so on).
-The target is to make possible the use of every kind of navigation software.
+## funzionalità
+1. Salva luogo
+2. Mostra tutti i luoghi salvati
+3. Condividi luogo
 
-## user profile
-Registered users
+# loci-loci
+loci-loci is a simple web-app in which create your list of favourite locations.
+Each location is identified by a label and an address (e.g. "Duomo", "Piazza Duomo, Milano").
+The address can be used with your favourite navigation software.
+The list can be saved/exported in JSON format
 
 ## functionalities
 1. Save a location
 2. Show all the saved location
 3. Share the location
    
-
-
 
 
 
