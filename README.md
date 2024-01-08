@@ -1,8 +1,8 @@
 # loci-loci
-Simple WebApp to store your favourite locations.
+Simple WebApp to store your favourite locations. A free alternative of the "saved locations" in google maps.
 
 ## purpose
-The purpose is to practice with dockers, HTML5, JavaScript, OpenStreetMap and MySQL. 
+The purpose of this web-app is to get rid of google maps.
 
 ## db schema
 Each record is defined by a label, an address and a set of tags (like #restaurant and so on).
