@@ -22,38 +22,14 @@
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <title>Loci-Loci</title>
-	<script>
-
-	</script>
-  </head>
-  <body onpageshow ="getGeoLocation()">
-  <!-- top row -->
 	
-	<p class="top-row">Loci-Loci
-	<button class="top-row">Log in</button>
-	<button class="top-row">Sign up</button>
-	</p>
-	
-<!-- end of top row --> 
-    
-	<div class="map">
-	<p>location:
-	<input style="width:75%;" type="text" id="location" name="location"></input>
-	<button id="search" name="search" style="float:right;margin-right:5px">search</button>
-	</p>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-	</div>
-	<div class="footer">
-	<p id="status"></p>
-	</div>
-	
-	<script>
+    <script>
 		const status = document.getElementById("status");
 		const map = L.map('map').setView([41.8829, 12.4214], 13);//set default view to Rome
-		const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
+		//const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		//	maxZoom: 19,
+		//	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		//}).addTo(map);
 		
 		function setGeoPosition(position)
 		{		
@@ -78,6 +54,61 @@
 		}
 		
 	</script>
+    <script>
+        function addLocation()
+        {
+            alert("addLocation");
+        }
+        function switchMapVisibility()
+        {
+            if(mapButton.innerHTML == "Show Map")
+                {
+                    divMap.style.display = "inherit";
+                    divMap.style.visibility = "true"
+                    mapButton.innerHTML = "Hide Map";
+                }
+            else
+                {
+                    divMap.style.display = "none";
+                    divMap.style.visibility = "false"
+                    mapButton.innerHTML = "Show Map";
+                }
+        }
+    </script>
+  </head>
+  <body>
+      
+<!-- top row -->
+	
+	<p class="top-row">Loci-Loci
+	<button class="top-row">Log in</button>
+	<button class="top-row">Sign up</button>
+	</p>
+	
+<!-- end of top row --> 
+    
+<!-- second row -->
+    <p class="other-row">
+    <input class="other-row" type="text" id="location" name="location" placeholder="location"></input>
+    <button class="other-row">Search</button>
+    <button class="other-row" id="mapButton" onclick="switchMapVisibility()">Show Map</button>
+    <button class="other-row" onclick="addLocation()">Add Location</button>
+    </p>
+      
+<!-- end of second row -->
+
+
+<!-- map -->
+	
+    <div class="map" id="divMap" style="display: none; width: 100%; height: 400px;"></div>
+
+<!-- footer -->
+	<div class="footer">
+	<p id="status"></p>
+	</div>
+<!-- end of footer -->
+	
+
 
 	
 
