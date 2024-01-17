@@ -50,7 +50,10 @@ button.other-row  {
 }
 
 div.map {
-	width:80%;
+    display: none;
+    visibility: false;
+    width: 80%; 
+    height: 400px;
 	padding:5px;
 	border: 2px solid green;
 	border-radius: 5px;
@@ -62,4 +65,20 @@ div.footer {
 	padding:5px;
 	border:2px solid yellow;
 	border-radius:5px;
+}
+
+table{
+    width:80%;
+    border-radius: 5px;
+}
+
+.label{
+    width:30%;
+}
+.address{
+    width:70%;
+}
+
+table,th,td{
+    border:2px solid green;
 }
